@@ -19,6 +19,15 @@
     <Property Name="MessageSubject" Type="nvarchar" MaxLength="100" />
     <Property Name="Content" Type="nvarchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="TblProjects">
+    <Key>
+      <PropertyRef Name="ProjectsId" />
+    </Key>
+    <Property Name="ProjectsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
   <EntityType Name="TblServices">
     <Key>
       <PropertyRef Name="ServicesId" />
@@ -29,9 +38,21 @@
     <Property Name="ServiceNumber" Type="char" MaxLength="2" Nullable="false" />
     <Property Name="ServiceContent" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
+  <EntityType Name="TblTestimonials">
+    <Key>
+      <PropertyRef Name="TestimonialsId" />
+    </Key>
+    <Property Name="TestimonialsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contents" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="CasgemPortfolioModelStoreContainer">
     <EntitySet Name="TblFeatures" EntityType="Self.TblFeatures" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblMessage" EntityType="Self.TblMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblProjects" EntityType="Self.TblProjects" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblServices" EntityType="Self.TblServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblTestimonials" EntityType="Self.TblTestimonials" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

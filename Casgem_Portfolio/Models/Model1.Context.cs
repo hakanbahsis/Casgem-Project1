@@ -28,5 +28,7 @@ namespace Casgem_Portfolio.Models
         public virtual DbSet<TblFeatures> TblFeatures { get; set; }
         public virtual DbSet<TblMessage> TblMessage { get; set; }
         public virtual DbSet<TblServices> TblServices { get; set; }
+        public virtual DbSet<TblProjects> TblProjects { get; set; }
+        public virtual DbSet<TblTestimonials> TblTestimonials { get; set; }
     }
 }

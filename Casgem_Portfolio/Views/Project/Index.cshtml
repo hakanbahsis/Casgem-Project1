@@ -1,0 +1,32 @@
+﻿@model List<Casgem_Portfolio.Models.TblProjects>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PortfolioAdminLayout.cshtml";
+    int count = 0;
+}
+
+<h2>Projeler Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Resim</th>
+        <th>İçerik</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+<tr>
+    <td>@count</td>
+    <td>@item.Title</td>
+    <td>@item.ImageUrl</td>
+    <td>@item.Description</td>
+    <td><a href="/Project/DeleteProject/@item.ProjectsId" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Project/UpdateProject/@item.ProjectsId" class="btn btn-warning">Güncelle</a></td>
+
+</tr>
+    }
+</table>
+<a href="/Project/AddProject" class="btn btn-success">Yeni Proje Girişi</a>

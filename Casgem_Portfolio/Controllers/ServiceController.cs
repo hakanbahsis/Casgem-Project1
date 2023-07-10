@@ -10,6 +10,10 @@ namespace Casgem_Portfolio.Controllers
 {
     public class ServiceController : Controller
     {
+        //referanslar admin kısmı
+        //projelerim admin kısmı
+        //mesaj detayı bitirilecek
+
         CasgemPortfolioEntities1 db = new CasgemPortfolioEntities1();
         // GET: Service
         public ActionResult Index()

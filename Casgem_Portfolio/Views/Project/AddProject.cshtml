@@ -1,0 +1,21 @@
+﻿@model Casgem_Portfolio.Models.TblProjects
+@{
+    ViewBag.Title = "AddProject";
+    Layout = "~/Views/Shared/_PortfolioAdminLayout.cshtml";
+}
+
+<h2>Yeni Proje Ekleme</h2>
+<form method="post">
+    <label>Proje Adı</label>
+    <input type="text" class="form-control" name="Title" />
+    <br />
+    <label>Açıklama</label>
+    <input type="text" class="form-control" name="Description" />
+    <br />
+    <label>Resim</label>
+    <input type="text" class="form-control" name="ImageUrl" />
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+</form>
+
+

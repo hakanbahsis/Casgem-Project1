@@ -1,0 +1,24 @@
+﻿@model Casgem_Portfolio.Models.TblTestimonials
+@{
+    ViewBag.Title = "UpdateTestimonials";
+    Layout = "~/Views/Shared/_PortfolioAdminLayout.cshtml";
+}
+
+<h2>Referans Güncelleme</h2>
+<form method="post">
+    @Html.HiddenFor(x => x.TestimonialsId)
+    <label>Referans Adı</label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <label>Konum</label>
+    @Html.TextBoxFor(x => x.Location, new { @class = "form-control" })
+    <br />
+    <label>Resim</label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <br />
+    <label>İçerik</label>
+    @Html.TextBoxFor(x => x.Contents, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+</form>
+

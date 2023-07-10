@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CasgemPortfolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CasgemPortfolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TblFeatures">
           <Key>
             <PropertyRef Name="FeatureId" />
@@ -24,6 +24,15 @@
           <Property Name="MessageSubject" Type="nvarchar" MaxLength="100" />
           <Property Name="Content" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="TblProjects">
+          <Key>
+            <PropertyRef Name="ProjectsId" />
+          </Key>
+          <Property Name="ProjectsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
         <EntityType Name="TblServices">
           <Key>
             <PropertyRef Name="ServicesId" />
@@ -34,13 +43,24 @@
           <Property Name="ServiceNumber" Type="char" MaxLength="2" Nullable="false" />
           <Property Name="ServiceContent" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
+        <EntityType Name="TblTestimonials">
+          <Key>
+            <PropertyRef Name="TestimonialsId" />
+          </Key>
+          <Property Name="TestimonialsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contents" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="CasgemPortfolioModelStoreContainer">
           <EntitySet Name="TblFeatures" EntityType="Self.TblFeatures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMessage" EntityType="Self.TblMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProjects" EntityType="Self.TblProjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblServices" EntityType="Self.TblServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTestimonials" EntityType="Self.TblTestimonials" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CasgemPortfolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -77,7 +97,28 @@
           <EntitySet Name="TblFeatures" EntityType="Self.TblFeatures" />
           <EntitySet Name="TblMessage" EntityType="Self.TblMessage" />
           <EntitySet Name="TblServices" EntityType="Self.TblServices" />
+          <EntitySet Name="TblProjects" EntityType="CasgemPortfolioModel.TblProjects" />
+          <EntitySet Name="TblTestimonials" EntityType="CasgemPortfolioModel.TblTestimonials" />
         </EntityContainer>
+        <EntityType Name="TblProjects">
+          <Key>
+            <PropertyRef Name="ProjectsId" />
+          </Key>
+          <Property Name="ProjectsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblTestimonials">
+          <Key>
+            <PropertyRef Name="TestimonialsId" />
+          </Key>
+          <Property Name="TestimonialsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contents" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -113,6 +154,27 @@
                 <ScalarProperty Name="Icon" ColumnName="Icon" />
                 <ScalarProperty Name="ServiceNumber" ColumnName="ServiceNumber" />
                 <ScalarProperty Name="ServiceContent" ColumnName="ServiceContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProjects">
+            <EntityTypeMapping TypeName="CasgemPortfolioModel.TblProjects">
+              <MappingFragment StoreEntitySet="TblProjects">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProjectsId" ColumnName="ProjectsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTestimonials">
+            <EntityTypeMapping TypeName="CasgemPortfolioModel.TblTestimonials">
+              <MappingFragment StoreEntitySet="TblTestimonials">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TestimonialsId" ColumnName="TestimonialsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -33,5 +33,26 @@
     <EntitySet Name="TblFeatures" EntityType="Self.TblFeatures" />
     <EntitySet Name="TblMessage" EntityType="Self.TblMessage" />
     <EntitySet Name="TblServices" EntityType="Self.TblServices" />
+    <EntitySet Name="TblProjects" EntityType="CasgemPortfolioModel.TblProjects" />
+    <EntitySet Name="TblTestimonials" EntityType="CasgemPortfolioModel.TblTestimonials" />
   </EntityContainer>
+  <EntityType Name="TblProjects">
+    <Key>
+      <PropertyRef Name="ProjectsId" />
+    </Key>
+    <Property Name="ProjectsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblTestimonials">
+    <Key>
+      <PropertyRef Name="TestimonialsId" />
+    </Key>
+    <Property Name="TestimonialsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

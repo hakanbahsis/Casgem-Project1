@@ -1,0 +1,34 @@
+﻿@model List<Casgem_Portfolio.Models.TblTestimonials>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PortfolioAdminLayout.cshtml";
+    int count = 0;
+}
+
+<h2>Referanslar Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ad Soyad</th>
+        <th>Konum</th>
+        <th>Resim</th>
+        <th>İçerik</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Name</td>
+            <td>@item.Location</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.Contents</td>
+            <td><a href="/Testimonials/DeleteTestimonials/@item.TestimonialsId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Testimonials/UpdateTestimonials/@item.TestimonialsId" class="btn btn-warning">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+<a href="/Testimonials/AddTestimonials" class="btn btn-success">Yeni Hizmet Girişi</a>
