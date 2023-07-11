@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="CasgemPortfolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblAbout">
+          <Key>
+            <PropertyRef Name="WhoAmIId" />
+          </Key>
+          <Property Name="WhoAmIId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title1" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CvUrl" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
         <EntityType Name="TblDepartment">
           <Key>
             <PropertyRef Name="DepartmentId" />
@@ -23,11 +34,6 @@
           <Property Name="EmployeeSalary" Type="decimal" Precision="18" Scale="2" />
           <Property Name="EmployeeDepartmentId" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'CasgemPortfolio.dbo.TblEmployeeCount' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TblEmployeeCount">
-          <Property Name="StaffCount" Type="int" />
-        </EntityType>-->
         <EntityType Name="TblFeatures">
           <Key>
             <PropertyRef Name="FeatureId" />
@@ -75,6 +81,16 @@ warning 6013: The table/view 'CasgemPortfolio.dbo.TblEmployeeCount' does not hav
           <Property Name="ServiceNumber" Type="char" MaxLength="2" Nullable="false" />
           <Property Name="ServiceContent" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
+        <EntityType Name="TblSocialMedia">
+          <Key>
+            <PropertyRef Name="SocialMediaId" />
+          </Key>
+          <Property Name="SocialMediaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="LinkedIn" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Instagram" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
         <EntityType Name="TblTestimonials">
           <Key>
             <PropertyRef Name="TestimonialsId" />
@@ -98,6 +114,7 @@ warning 6013: The table/view 'CasgemPortfolio.dbo.TblEmployeeCount' does not hav
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CasgemPortfolioModelStoreContainer">
+          <EntitySet Name="TblAbout" EntityType="Self.TblAbout" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblDepartment" EntityType="Self.TblDepartment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblEmployee" EntityType="Self.TblEmployee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblFeatures" EntityType="Self.TblFeatures" Schema="dbo" store:Type="Tables" />
@@ -105,6 +122,7 @@ warning 6013: The table/view 'CasgemPortfolio.dbo.TblEmployeeCount' does not hav
           <EntitySet Name="TblMyResume" EntityType="Self.TblMyResume" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblProjects" EntityType="Self.TblProjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblServices" EntityType="Self.TblServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSocialMedia" EntityType="Self.TblSocialMedia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblTestimonials" EntityType="Self.TblTestimonials" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_TblEmployee_TblDepartment" Association="Self.FK_TblEmployee_TblDepartment">
             <End Role="TblDepartment" EntitySet="TblDepartment" />
@@ -157,6 +175,8 @@ warning 6013: The table/view 'CasgemPortfolio.dbo.TblEmployeeCount' does not hav
             <End Role="TblDepartment" EntitySet="TblDepartment" />
             <End Role="TblEmployee" EntitySet="TblEmployee" />
           </AssociationSet>
+          <EntitySet Name="TblAbout" EntityType="CasgemPortfolioModel.TblAbout" />
+          <EntitySet Name="TblSocialMedia" EntityType="CasgemPortfolioModel.TblSocialMedia" />
         </EntityContainer>
         <EntityType Name="TblProjects">
           <Key>
@@ -218,6 +238,27 @@ warning 6013: The table/view 'CasgemPortfolio.dbo.TblEmployeeCount' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TblAbout">
+          <Key>
+            <PropertyRef Name="WhoAmIId" />
+          </Key>
+          <Property Name="WhoAmIId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title1" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CvUrl" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblSocialMedia">
+          <Key>
+            <PropertyRef Name="SocialMediaId" />
+          </Key>
+          <Property Name="SocialMediaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Facebook" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LinkedIn" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -304,6 +345,29 @@ warning 6013: The table/view 'CasgemPortfolio.dbo.TblEmployeeCount' does not hav
                 <ScalarProperty Name="EmployeeSurname" ColumnName="EmployeeSurname" />
                 <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAbout">
+            <EntityTypeMapping TypeName="CasgemPortfolioModel.TblAbout">
+              <MappingFragment StoreEntitySet="TblAbout">
+                <ScalarProperty Name="CvUrl" ColumnName="CvUrl" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title1" ColumnName="Title1" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="WhoAmIId" ColumnName="WhoAmIId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSocialMedia">
+            <EntityTypeMapping TypeName="CasgemPortfolioModel.TblSocialMedia">
+              <MappingFragment StoreEntitySet="TblSocialMedia">
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="SocialMediaId" ColumnName="SocialMediaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

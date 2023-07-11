@@ -16,6 +16,12 @@ namespace Casgem_Portfolio.Controllers
             ViewBag.Title = db.TblFeatures.Select(x => x.FeatureTitle).FirstOrDefault();
             ViewBag.Description = db.TblFeatures.Select(x => x.FeatureDescription).FirstOrDefault();
             ViewBag.ImageUrl = db.TblFeatures.Select(x => x.FeaturesImageUrl).FirstOrDefault();
+
+
+            ViewBag.Facebook = db.TblSocialMedia.Select(x => x.Facebook).FirstOrDefault();
+            ViewBag.Linkedin = db.TblSocialMedia.Select(x => x.LinkedIn).FirstOrDefault();
+            ViewBag.Instagram = db.TblSocialMedia.Select(x => x.Instagram).FirstOrDefault();
+            ViewBag.Twitter = db.TblSocialMedia.Select(x => x.Twitter).FirstOrDefault();
             return View();
         }
 
@@ -51,7 +57,18 @@ namespace Casgem_Portfolio.Controllers
 
         public PartialViewResult PartialAbout()
         {
+            ViewBag.Title = db.TblAbout.Select(x => x.Title).FirstOrDefault();
+            ViewBag.Title1 = db.TblAbout.Select(x => x.Title1).FirstOrDefault();
+            ViewBag.Description = db.TblAbout.Select(x => x.Description).FirstOrDefault();
+            ViewBag.ImageUrl = db.TblAbout.Select(x => x.ImageUrl).FirstOrDefault();
             return PartialView();
+        }
+       
+
+        public FileResult Download(string file)
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/Templates/" + file + ""));
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, file);
         }
 
         public PartialViewResult MyResume()
@@ -68,6 +85,24 @@ namespace Casgem_Portfolio.Controllers
             ViewBag.TotalProject = db.TblProjects.Count();
             ViewBag.HappyCustomer = 23;
             return PartialView();
+        }
+
+        public PartialViewResult PartialServices()
+        {
+            var values = db.TblServices.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialTestimonials()
+        {
+            var values = db.TblTestimonials.ToList();
+            return PartialView(values);
+        }
+        
+        public PartialViewResult PartialFooter()
+        {
+            var values = db.TblSocialMedia.ToList();
+            return PartialView(values);
         }
     }
 }

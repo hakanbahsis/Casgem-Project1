@@ -42,6 +42,8 @@
       <End Role="TblDepartment" EntitySet="TblDepartment" />
       <End Role="TblEmployee" EntitySet="TblEmployee" />
     </AssociationSet>
+    <EntitySet Name="TblAbout" EntityType="CasgemPortfolioModel.TblAbout" />
+    <EntitySet Name="TblSocialMedia" EntityType="CasgemPortfolioModel.TblSocialMedia" />
   </EntityContainer>
   <EntityType Name="TblProjects">
     <Key>
@@ -103,4 +105,25 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="TblAbout">
+    <Key>
+      <PropertyRef Name="WhoAmIId" />
+    </Key>
+    <Property Name="WhoAmIId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title1" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CvUrl" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblSocialMedia">
+    <Key>
+      <PropertyRef Name="SocialMediaId" />
+    </Key>
+    <Property Name="SocialMediaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Facebook" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="LinkedIn" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Instagram" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>
