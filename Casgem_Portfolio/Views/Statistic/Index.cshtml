@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PortfolioAdminLayout.cshtml";
+}
+
+<div class="card text-white bg-primary mb-3" style="width: 100%;">
+    <div class="card-body">
+        <h5 class="card-title">Toplam Personel Sayısı : @ViewBag.employeeCount</h5>
+    </div>
+</div>
+<div class="card text-white bg-info mb-3" style="width: 100%;">
+    <div class="card-body">
+        <h5 class="card-title">En Yüksek Maaş Alan Personel : @ViewBag.maxSalaryEmployee</h5>
+    </div>
+</div>
+
+<div class="card text-white bg-warning mb-3" style="width: 100%;">
+    <div class="card-body">
+        <h5 class="card-title">Toplam Şehir Sayısı : @ViewBag.totalCityCount</h5>
+    </div>
+</div>
+
+<div class="card text-white bg-success mb-3" style="width: 100%;">
+    <div class="card-body">
+        <h5 class="card-title">Yazılım Departmanında Çalışan Sayısı : @ViewBag.countSoftwareDevelopment</h5>
+    </div>
+</div>
+
+<div class="card text-white bg-secondary mb-3" style="width: 100%;">
+    <div class="card-body">
+        <h5 class="card-title">Ortalama Personel Maaşı : @ViewBag.avgEmployeeSalary </h5>
+    </div>
+</div>
+
+<div class="card text-white bg-danger mb-3" style="width: 100%;">
+    <div class="card-body">
+        <h5 class="card-title text-white">Şehri Ankara ve Adana olan personelin maaş toplamı : @ViewBag.salary </h5>
+    </div>
+</div>
+
+<div class="card text-white bg-dark mb-3" style="width: 100%;">
+    <div class="card-body">
+        <h5 class="card-title text-white">Şehri Ankara ve departmanı yazılım olan personelin maaş toplamı : @ViewBag.sumSalaryFromSoftwareDepartment </h5>
+    </div>
+</div>
