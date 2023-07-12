@@ -38,6 +38,15 @@
     <Property Name="FeatureDescription" Type="nvarchar" MaxLength="259" />
     <Property Name="FeaturesImageUrl" Type="nvarchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="TblInfo">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
   <EntityType Name="TblMessage">
     <Key>
       <PropertyRef Name="MessageId" />
@@ -113,6 +122,7 @@
     <EntitySet Name="TblDepartment" EntityType="Self.TblDepartment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblEmployee" EntityType="Self.TblEmployee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblFeatures" EntityType="Self.TblFeatures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblInfo" EntityType="Self.TblInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblMessage" EntityType="Self.TblMessage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblMyResume" EntityType="Self.TblMyResume" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblProjects" EntityType="Self.TblProjects" Schema="dbo" store:Type="Tables" />

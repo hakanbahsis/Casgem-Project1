@@ -22,6 +22,12 @@ namespace Casgem_Portfolio.Controllers
             ViewBag.Linkedin = db.TblSocialMedia.Select(x => x.LinkedIn).FirstOrDefault();
             ViewBag.Instagram = db.TblSocialMedia.Select(x => x.Instagram).FirstOrDefault();
             ViewBag.Twitter = db.TblSocialMedia.Select(x => x.Twitter).FirstOrDefault();
+
+            List<TblAbout> about = new List<TblAbout>();
+            about = db.TblAbout.ToList();
+            ViewBag.D1 = about.Select(x => x.Title).FirstOrDefault(); 
+            ViewBag.D2 = about.Select(x => x.Title1).FirstOrDefault(); 
+
             return View();
         }
 

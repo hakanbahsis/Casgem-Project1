@@ -1,0 +1,35 @@
+﻿@model List<Casgem_Portfolio.Models.TblInfo>
+@{
+    ViewBag.Title = "ListInfo";
+    Layout = "~/Views/Shared/_PortfolioAdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<h2>İletişim Bilgilerim</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Telefon</th>
+        <th>E-Posta</th>
+        <th>Adres</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Phone</td>
+            <td>@item.Email</td>
+            <td>@item.Address</td>
+            <td><a href="/Info/UpdateInfo/@item.ContactId" class="btn btn-info">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+@if (ViewBag.Count == 0)
+{
+    <a href="/Info/AddInfo" class="btn btn-success">Yeni Kayıt</a>
+}
+

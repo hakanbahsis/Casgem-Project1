@@ -133,6 +133,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FeatureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PortfolioController.cs" />
@@ -169,6 +170,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TblFeatures.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblInfo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TblMessage.cs">
@@ -279,6 +283,7 @@
     <Content Include="Templates\sidebar-01\js\jquery.min.js" />
     <Content Include="Templates\sidebar-01\js\main.js" />
     <Content Include="Templates\sidebar-01\js\popper.js" />
+    <Content Include="Templates\tik.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -432,6 +437,9 @@
     <Content Include="Views\About\AddAbout.cshtml" />
     <Content Include="Views\About\UpdateAbout.cshtml" />
     <Content Include="Views\Portfolio\PartialFooter.cshtml" />
+    <Content Include="Views\Info\Index.cshtml" />
+    <Content Include="Views\Info\AddInfo.cshtml" />
+    <Content Include="Views\Info\UpdateInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

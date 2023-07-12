@@ -15,6 +15,9 @@ namespace Casgem_Portfolio.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.Phone = db.TblInfo.Select(x => x.Phone).FirstOrDefault();
+            ViewBag.Mail = db.TblInfo.Select(x => x.Email).FirstOrDefault();
+            ViewBag.Address = db.TblInfo.Select(x => x.Address).FirstOrDefault();
 
             return View();
         }
@@ -26,7 +29,7 @@ namespace Casgem_Portfolio.Controllers
             {
                 db.TblMessage.Add(message);
                 db.SaveChanges();
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
 
                 return RedirectToAction("Index", "Portfolio");
                // return Json(new { success = true });
@@ -34,5 +37,7 @@ namespace Casgem_Portfolio.Controllers
             return View(message);
             
         }
+
+       
     }
 }

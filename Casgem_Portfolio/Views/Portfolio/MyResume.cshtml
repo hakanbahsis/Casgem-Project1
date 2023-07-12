@@ -10,7 +10,8 @@
                 @item.Description
             </p>
             <div class="mt-5">
-                <a href="#download" class="btn btn-style btn-primary">CV İndir</a>
+                <a href="@Url.Action("Download", "Portfolio", new { file = "cv.pdf" })" class="btn btn-style btn-primary">CV İndir</a>
+               
             </div>
         </div>
     </div>

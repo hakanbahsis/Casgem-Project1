@@ -44,6 +44,7 @@
     </AssociationSet>
     <EntitySet Name="TblAbout" EntityType="CasgemPortfolioModel.TblAbout" />
     <EntitySet Name="TblSocialMedia" EntityType="CasgemPortfolioModel.TblSocialMedia" />
+    <EntitySet Name="TblInfo" EntityType="CasgemPortfolioModel.TblInfo" />
   </EntityContainer>
   <EntityType Name="TblProjects">
     <Key>
@@ -125,5 +126,14 @@
     <Property Name="LinkedIn" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Instagram" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Twitter" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblInfo">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>
